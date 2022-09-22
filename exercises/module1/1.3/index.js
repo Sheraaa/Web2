@@ -1,5 +1,6 @@
 let clicks = 0; 
 let a = document.getElementById('btn');
+let counter = document.getElementById('cpt');
 
 a.onclick = function(){
     clicks++;
@@ -11,4 +12,5 @@ a.onclick = function(){
     if(clicks == 10){
         a.innerHTML = "Vous êtes passé maître en l'art du clic !";
     }
+    counter.innerHTML = clicks;
 }
