@@ -34,51 +34,32 @@ const MENU = [
 const DRINKS = [
 
     {
-
         id: 1,
-
         title: 'Lemonade',
-
         content: 'Sparkling water, lemon, ice cubes',
-
     },
 
     {
-
         id: 2,
-
         title: 'Ice tea',
-
         content: 'Mint, ginger, water',
-
     },
 
     {
-
         id: 3,
-
         title: 'Exotic Kombucha',
-
         content: 'Mango, Sparkling water, Fermented tea',
-
     },
-
 ];
 
 const body = document.querySelector('body');
-
 body.addEventListener('click', startOrStopSound);
-
 renderMenuFromString(MENU);
-
 attachOnMouseEventsToGoGreen();
-
 renderDrinksFromNodes(DRINKS);
-
 renderPizzaimage(pizzaImage);
 
 const mainWrapper = document.querySelector('main');
-
 const figcaption = document.createElement('figcaption');
 figcaption.innerText = 'Our drinks';
 figcaption.className = 'text-light text-decoration-underline';
