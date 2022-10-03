@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './stylesheets/main.css';
 
-const myForm = document.querySelector('myForm');
+const myForm = document.querySelector('form');
 const linesInput = document.getElementById('lines');
 const columnsInput = document.getElementById('columns');
 const startStringInput = document.getElementById('startString');
