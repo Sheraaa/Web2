@@ -3,7 +3,7 @@ import sound from '../../sound/Infecticide-11-Pizza-Spinoza.mp3';
 const Header = () => {
   renderTitleAndWrapper();
   renderAudioPlayer();
-  onBodyClick();
+ // onBodyClick();
 };
 
 function renderTitleAndWrapper() {
@@ -29,16 +29,16 @@ function renderAudioPlayer() {
   `;
 }
 
-function onBodyClick() {
-  const body = document.querySelector('body');
-  body.addEventListener('click', startOrStopSound);
-}
+// function onBodyClick() {
+//   const body = document.querySelector('body');
+//   body.addEventListener('click', startOrStopSound);
+// }
 
-function startOrStopSound() {
-  const myAudioPlayer = document.querySelector('#audioPlayer');
+// function startOrStopSound() {
+//   const myAudioPlayer = document.querySelector('#audioPlayer');
 
-  if (myAudioPlayer.paused) myAudioPlayer.play();
-  else myAudioPlayer.pause();
-}
+//   if (myAudioPlayer.paused) myAudioPlayer.play();
+//   else myAudioPlayer.pause();
+// }
 
 export default Header;
