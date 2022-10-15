@@ -1,0 +1,15 @@
+### Read all movies with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+###CREATE a movie
+
+POST {{baseUrl}}/films
+Content-Type: : application/application/json
+
+{
+    "title": "Gladiateur",
+    "duration": "230",
+    "budget": "100",
+    "link": "www.imdb.com"
+}
