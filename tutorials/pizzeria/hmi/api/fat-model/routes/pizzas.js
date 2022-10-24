@@ -9,8 +9,6 @@ const {
 
 const router = express.Router();
 
-const jsonDbPath = path.join(__dirname, '/../data/pizzas.json');
-
 /* Read all the pizzas from the menu
    GET /pizzas?order=title : ascending order by title
    GET /pizzas?order=-title : descending order by title
@@ -47,7 +45,7 @@ router.delete('/:id', (req, res) => {
 
   if (!deletedPizza) return res.sendStatus(404);
 
-  return res.json(itemRemoved);
+  return res.json(deletedPizza);
 });
 
 // Update a pizza based on its id and new values for its parameters
@@ -61,9 +59,9 @@ router.patch('/:id', (req, res) => {
 
   const pizzas = updateOnePizza(req.params.id, {title, content});
 
-  if (!updatedPizza) return res.sendStatus(404);
+  if (!pizzas) return res.sendStatus(404);
 
-  return res.json(updatedPizza);
+  return res.json(pizzas);
 });
 
 module.exports = router;
