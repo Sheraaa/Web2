@@ -1,0 +1,61 @@
+### Read all movies with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+###CREATE a movie
+
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+    "title": "Gladiateur",
+    "duration": 230,
+    "budget": 100,
+    "link": "www.imdb.com"
+}
+
+###CREATE a movie
+
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+    "title": "SpiderMan",
+    "duration": 250,
+    "budget": 400,
+    "link": "www.imdb.com"
+}
+###CREATE a movie with lake of parameters
+
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+    "title": "Le Temps d'un automne",
+    "link": "www.imdb.com"
+}
+
+###CREATE a movie with wrong numbers
+
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+    "title": "Troie",
+    "duration": "240",
+    "budget": "100",
+    "link": "www.imdb.com"
+}
+
+###Delete pizza identified by 2
+DELETE {{baseUrl}}/films/1
+
+###Update the movie identified by 2
+PATCH {{baseUrl}}/films/2
+Content-Type: application/json
+{
+    "duration":220
+}
+
+### Read all films with minimum duration of 230
+GET {{baseUrl}}/films?minimum-duration=120
