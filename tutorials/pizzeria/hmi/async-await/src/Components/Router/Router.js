@@ -1,15 +1,14 @@
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
+import AddPizzaPage from '../Pages/AddPizzaPage';
 
 const routes = {
 
     '/': HomePage,
-  
     '/login': LoginPage,
-  
     '/register': RegisterPage,
-  
+    '/add-pizza': AddPizzaPage,
   };
   
 
