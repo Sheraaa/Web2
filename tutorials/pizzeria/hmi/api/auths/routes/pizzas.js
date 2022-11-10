@@ -6,7 +6,7 @@ const {
   deleteOnePizza,
   updateOnePizza,
 } = require('../models/pizza');
-
+const { authorize, isAdmin } = require('../utils/auths');
 const router = express.Router();
 
 /* Read all the pizzas from the menu
@@ -28,19 +28,28 @@ router.get('/:id', (req, res) => {
 });
 
 // Create a pizza to be added to the menu.
-router.post('/', (req, res) => {
+// router.post('/', (req, res) => {
+//   const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
+//   const content = req?.body?.content?.length !== 0 ? req.body.content : undefined;
+
+//   if (!title || !content) return res.sendStatus(400); // error code '400 Bad request'
+
+//   const createdPizza = createOnePizza(title,content);
+
+//   return res.json(createdPizza);
+// });
+router.post('/', authorize, isAdmin, (req, res) => {
   const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
   const content = req?.body?.content?.length !== 0 ? req.body.content : undefined;
 
   if (!title || !content) return res.sendStatus(400); // error code '400 Bad request'
 
-  const createdPizza = createOnePizza(title,content);
+  const createdPizza = createOnePizza(title, content);
 
   return res.json(createdPizza);
 });
-
 // Delete a pizza from the menu based on its id
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authorize, isAdmin, (req, res) => {
   const deletedPizza = deleteOnePizza(req.params.id);
 
   if (!deletedPizza) return res.sendStatus(404);
@@ -49,7 +58,7 @@ router.delete('/:id', (req, res) => {
 });
 
 // Update a pizza based on its id and new values for its parameters
-router.patch('/:id', (req, res) => {
+router.patch('/:id', authorize, isAdmin, (req, res) => {
   const title = req?.body?.title;
   const content = req?.body?.content;
 
@@ -63,5 +72,7 @@ router.patch('/:id', (req, res) => {
 
   return res.json(pizzas);
 });
+
+
 
 module.exports = router;
