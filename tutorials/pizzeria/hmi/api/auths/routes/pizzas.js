@@ -7,6 +7,7 @@ const {
   updateOnePizza,
 } = require('../models/pizza');
 const { authorize, isAdmin } = require('../utils/auths');
+
 const router = express.Router();
 
 /* Read all the pizzas from the menu
