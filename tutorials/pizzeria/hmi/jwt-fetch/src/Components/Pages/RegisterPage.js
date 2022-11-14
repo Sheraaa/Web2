@@ -1,4 +1,6 @@
+import { setAuthenticatedUser } from '../../utils/auths';
 import { clearPage, renderPageTitle } from '../../utils/render';
+import Navbar from '../Navbar/Navbar';
 import Navigate from '../Router/Navigate';
 
 const RegisterPage = () => {
@@ -56,6 +58,8 @@ async function onRegister(e) {
 
   const authenticatedUser = await response.json();
   console.log('Newly registered & authenticated user : ', authenticatedUser);
+  setAuthenticatedUser(authenticatedUser);
+  Navbar();
   Navigate('/');
 }
 
