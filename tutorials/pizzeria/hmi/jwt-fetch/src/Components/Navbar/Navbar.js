@@ -41,7 +41,7 @@ function renderNavbar() {
     </nav>
 `;
 
-  const authenticatedUserNavbar = `
+  let authenticatedUserNavbar = `
 <nav class="navbar navbar-expand-lg navbar-light bg-danger">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">e-Pizzeria</a>
@@ -60,11 +60,16 @@ function renderNavbar() {
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="#" data-uri="/">Home</a>
-            </li>          
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-uri="/add-pizza">Add a pizza</a>
-            </li>
-            <li class="nav-item">
+            </li> `;
+  //  ${authenticatedUser?.username === 'admin' ? "jjj" : ""}
+
+  if (authenticatedUser?.username === 'admin') {
+    authenticatedUserNavbar += `<li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/add-pizza">Add a pizza</a>
+              </li>`;
+  }
+
+  authenticatedUserNavbar += `  <li class="nav-item">
               <a class="nav-link" href="#" data-uri="/logout">Logout</a>
             </li>    
             <li class="nav-item">
