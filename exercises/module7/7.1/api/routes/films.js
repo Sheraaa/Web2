@@ -5,7 +5,7 @@ const {
   createOneFilm,
   deleteOneFilm,
   updateOneFilm,
-} = require('../models/movies');
+} = require('../models/films');
 const { authorize } = require('../utils/auths');
 
 const router = express.Router();
