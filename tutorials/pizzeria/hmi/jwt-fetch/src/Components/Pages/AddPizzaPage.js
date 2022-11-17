@@ -1,3 +1,4 @@
+import { getAuthenticatedUser } from '../../utils/auths';
 import { clearPage, renderPageTitle } from '../../utils/render';
 import Navigate from '../Router/Navigate';
 
@@ -39,6 +40,9 @@ async function onAddPizza(e) {
   e.preventDefault();
   const title = document.querySelector('#title').value;
   const content = document.querySelector('#content').value;
+
+  const authenticatedUser = getAuthenticatedUser();
+
   const options = {
     method: 'POST',
     body: JSON.stringify({
@@ -48,6 +52,7 @@ async function onAddPizza(e) {
 
     headers: {
       'Content-Type': 'application/json',
+      Authorization: authenticatedUser.token,
     },
   };
 
